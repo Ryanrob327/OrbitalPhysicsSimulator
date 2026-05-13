@@ -9,14 +9,14 @@ CelestialBody::CelestialBody(
     float mass,
     float radius,
     Color color
-)
+):
+    position(position),
+    velocity(velocity),
+    acceleration({0.0f, 0.0f}),
+    mass(mass),
+    radius(radius),
+    color(color)
 {
-    position = position;
-    velocity = velocity;
-    acceleration = {0.0f, 0.0f};
-    mass = mass;
-    radius = radius;
-    color = color;
 }
 
 // Update physics
@@ -35,5 +35,5 @@ void CelestialBody::Update(float deltaTime)
 }
 
 void CelestialBody::Draw(){
-    DrawCircle(position.x, position.y, radius, GREEN);
+    DrawCircle(position.x, position.y, radius, color);
 }
