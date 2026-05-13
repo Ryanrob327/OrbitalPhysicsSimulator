@@ -1,25 +1,34 @@
 #include <raylib.h>
-#include "ball.h"
+
+
 
 int main() 
 {
     const Color darkGreen = {20, 160, 133, 255};
     
-    constexpr int screenWidth = 800;
-    constexpr int screenHeight = 600;
+    constexpr int screenWidth = 1600;
+    constexpr int screenHeight = 900;
     
-    Ball ball;
-    
-    InitWindow(screenWidth, screenHeight, "My first RAYLIB program!");
+
+    InitWindow(screenWidth, screenHeight, "Orbital Physics Simulation");
     SetTargetFPS(60);
     
+
     while (!WindowShouldClose())
     {
-        ball.Update();
+        // Get delta time
+        float deltaTime = GetFrameTime();
+
+        // Updating
+        
+
+        // Collision
+  
         
         BeginDrawing();
-            ClearBackground(darkGreen);
-            ball.Draw();
+            // Drawing
+            ClearBackground(BLACK);
+            
         EndDrawing();
     }
     
