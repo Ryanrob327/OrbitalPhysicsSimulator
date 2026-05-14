@@ -1,5 +1,6 @@
 #include <raylib.h>
 #include "celestial-bodies/celestialBody.h"
+#include "physicsSimulator.h"
 
 
 
@@ -13,17 +14,20 @@ int main()
     InitWindow(screenWidth, screenHeight, "Orbital Physics Simulation");
     SetTargetFPS(60);
     
-    CelestialBody earth({400,450}, {0,0}, 597200, 20, GREEN);
-    CelestialBody moon({1200,450}, {0,0}, 7347, 5, WHITE);
+    CelestialBody earth({400,450}, {0,0}, 2000, 20, GREEN);
+    CelestialBody moon({600,450}, {0,-32}, 500, 5, WHITE);
+    PhysicsSimulator simulator;
 
 
     while (!WindowShouldClose())
     {
         // Get delta time
-        float deltaTime = GetFrameTime();
+        float delta = GetFrameTime();
 
         // Updating
-        
+        simulator.ApplyGravity(earth, moon);
+        earth.Update(delta);
+        moon.Update(delta);
 
         // Collision
 

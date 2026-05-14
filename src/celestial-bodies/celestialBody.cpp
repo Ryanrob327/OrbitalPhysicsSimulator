@@ -20,8 +20,7 @@ CelestialBody::CelestialBody(
 }
 
 // Update physics
-void CelestialBody::Update(float deltaTime)
-{
+void CelestialBody::Update(float deltaTime){
     // Velocity changes from acceleration
     velocity.x += acceleration.x * deltaTime;
     velocity.y += acceleration.y * deltaTime;
