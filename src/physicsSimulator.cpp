@@ -1,7 +1,6 @@
 #include <raylib.h>
 #include "raymath.h"
 #include "physicsSimulator.h"
-#include <iostream> // header for input/output
 
 
 
@@ -25,6 +24,4 @@ void PhysicsSimulator::ApplyGravity(CelestialBody& bodyA, CelestialBody& bodyB){
 
     bodyB.acceleration.x -= normal.x * accelerationB;
     bodyB.acceleration.y -= normal.y * accelerationB;
-
-    std::cout << bodyA.acceleration.x << bodyA.acceleration.y << bodyB.acceleration.x << bodyB.acceleration.y << std::endl;
 }
