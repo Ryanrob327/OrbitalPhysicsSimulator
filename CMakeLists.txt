@@ -5,9 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(raylib REQUIRED)
 
-file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
-    src/*.cpp
-)
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp)
 
 add_executable(game ${SOURCES})
 

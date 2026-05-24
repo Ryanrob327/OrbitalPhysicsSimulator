@@ -1,5 +1,6 @@
 #include <raylib.h>
 #include "celestial-bodies/celestialBody.h"
+#include "celestial-bodies/rocket.h"
 #include "physicsSimulator.h"
 
 
@@ -33,6 +34,7 @@ int main()
     
     CelestialBody earth({400,450}, {0,0}, 2000, 20, GREEN);
     CelestialBody moon({600,450}, {0,-32}, 500, 5, WHITE);
+    Rocket rocket({500,450}, {0,15}, 2, 3, RED);
     PhysicsSimulator simulator;
 
     // Camera
@@ -50,8 +52,11 @@ int main()
 
         // Updating
         simulator.ApplyGravity(earth, moon);
+        simulator.ApplyGravity(earth, rocket);
+        simulator.ApplyGravity(rocket, moon);
         earth.Update(delta);
         moon.Update(delta);
+        rocket.Update(delta);
 
         // Collision
 
@@ -66,6 +71,7 @@ int main()
             BeginMode2D(camera);
                 earth.Draw();
                 moon.Draw();
+                rocket.Draw();
             EndMode2D();
         EndDrawing();
     }
